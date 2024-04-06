@@ -1,0 +1,3 @@
+ [x] user login, properties: {'age': 25, 'user': 'amir'}, 2024-04-06 18:24:26.625823
+ [x] user buy a product, properties: {'age': 25, 'user': 'amir'}, 2024-04-06 18:24:26.626364
+ [x] user cancel a cart, properties: {'age': 25, 'user': 'amir'}, 2024-04-06 18:24:26.626729
