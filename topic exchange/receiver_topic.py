@@ -1,11 +1,9 @@
 import datetime
-import pika
 import sys
 
-credentials = pika.PlainCredentials('amir', '13761376')
-connection = pika.BlockingConnection(pika.ConnectionParameters(host='localhost', credentials=credentials))
+from make_connection import make_connection
 
-channel = connection.channel()
+connection, channel = make_connection('amir', '13761376')
 
 channel.exchange_declare(exchange='topic_logs',
                          exchange_type='topic')

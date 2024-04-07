@@ -1,10 +1,9 @@
-import pika
 import sys
 
-credentials = pika.PlainCredentials('amir', '13761376')
-connection = pika.BlockingConnection(pika.ConnectionParameters(host='localhost', credentials=credentials))
+from make_connection import make_connection, pika
 
-channel = connection.channel()
+connection, channel = make_connection('amir', '13761376')
+
 channel.queue_declare(queue='important_queue')
 channel.queue_declare(queue='unimportant_queue')
 channel.exchange_declare(exchange='topic_logs',

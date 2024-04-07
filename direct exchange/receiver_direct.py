@@ -1,13 +1,9 @@
 from random import randint
 from time import sleep
 
-import pika
+from make_connection import make_connection
 
-credentials = pika.PlainCredentials('amir', '13761376')
-
-connection = pika.BlockingConnection(pika.ConnectionParameters(host='localhost'))
-
-channel = connection.channel()
+connection, channel = make_connection('amir', '13761376')
 
 def callback(ch, method, properties, body):
     sleep(randint(0, 3))

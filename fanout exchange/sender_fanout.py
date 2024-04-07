@@ -1,11 +1,8 @@
 import time
 
-import pika
+from make_connection import make_connection, pika
 
-credentials = pika.PlainCredentials('amir', '13761376')
-connection = pika.BlockingConnection(pika.ConnectionParameters(host='localhost', credentials=credentials))
-
-channel_1 = connection.channel()
+connection, channel_1 = make_connection('amir', '13761376')
 
 channel_1.basic_qos(prefetch_count=1)
 

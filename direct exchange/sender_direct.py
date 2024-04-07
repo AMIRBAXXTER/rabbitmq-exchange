@@ -1,10 +1,7 @@
+from make_connection import make_connection
 import pika
 
-credentials = pika.PlainCredentials('amir', '13761376')
-
-connection = pika.BlockingConnection(pika.ConnectionParameters(host='localhost', credentials=credentials))
-
-channel = connection.channel()
+connection, channel = make_connection('amir', '13761376')
 
 channel.queue_declare(queue='direct_queue')
 

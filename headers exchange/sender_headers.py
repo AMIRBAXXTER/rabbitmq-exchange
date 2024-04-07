@@ -1,9 +1,8 @@
-import pika
 import sys
 
-credentials = pika .PlainCredentials('amir', '13761376')
-connection = pika.BlockingConnection(pika.ConnectionParameters(host='localhost', credentials=credentials))
-channel = connection.channel()
+from make_connection import make_connection, pika
+
+connection, channel = make_connection('amir', '13761376')
 
 channel.exchange_declare(exchange='headers_exchange', exchange_type='headers')
 if len(sys.argv) == 2:
